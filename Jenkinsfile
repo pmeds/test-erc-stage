@@ -3,7 +3,12 @@ pipeline {
   stages {
     stage('get excel and python file') {
       steps {
-        sh '''rm -rf check_old*
+        sh '''echo "creating file to check for existing data"
+touch existing_data.txt
+echo "remove previous remove existing data script"
+rm -rf check_old*
+echo "check for existing data"
+ls > existing_data.txt
 wget https://raw.githubusercontent.com/pmeds/test-erc-stage/main/check_old.sh
 chmod 755 check_old.sh
 sh check_old.sh
