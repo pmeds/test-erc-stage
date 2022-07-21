@@ -5,7 +5,7 @@ import csv
 filename = "rules.xlsx"
 print(filename)
 
-df = pd.read_excel(filename)
+df = pd.read_excel(filename, engine='openpyxl')
 header = ['hash', 'source', 'destination']
 with open('upload.csv', 'w', newline='') as w:
     writer = csv.writer(w)
