@@ -1,4 +1,4 @@
-for i in $(cat check_old_files.txt);
+for i in $(cat existing_data.txt);
 do
 FILES=$(echo "$i") 
 
