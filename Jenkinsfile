@@ -3,8 +3,10 @@ pipeline {
   stages {
     stage('get excel and python file') {
       steps {
-        sh '''wget https://raw.githubusercontent.com/pmeds/test-erc-stage/main/check_old.sh
+        sh '''rm -rf check_old*
+wget https://raw.githubusercontent.com/pmeds/test-erc-stage/main/check_old.sh
 chmod 755 check_old.sh
+sh check_old.sh
 '''
         sh '''wget https://raw.githubusercontent.com/pmeds/test-erc-stage/main/rules.xlsx
 wget https://raw.githubusercontent.com/pmeds/test-erc-stage/main/CSV_formatter.py 
