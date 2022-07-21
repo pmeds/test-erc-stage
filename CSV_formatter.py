@@ -15,7 +15,7 @@ with open('upload.csv', 'w', newline='') as w:
         source_hash = hashlib.sha256(source_data.encode('utf-8')).hexdigest()
         destination = row['destination']
         ekvitem = [source_hash, source_data, destination]
-        print("writing to ekv_update.json")
+        print("Writing to upload-general.csv")
         writer.writerow(ekvitem)
 
 
