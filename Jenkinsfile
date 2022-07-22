@@ -12,7 +12,7 @@ chmod 755 /var/lib/jenkins/workspace/test-erc-stage_main/CSV_formatter.py'''
     stage('run python file') {
       steps {
         sh '''python3 /var/lib/jenkins/workspace/test-erc-stage_main/CSV_formatter.py
-cat /var/lib/jenkins/workspace/test-erc-stage_main/upload.csv'''
+'''
       }
     }
 
