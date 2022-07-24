@@ -30,6 +30,7 @@ for index, row in df.iterrows():
                 writerg.writerow(header)
                 print(header)
                 header_added = True
+            print(ekvitem)
             writerg.writerows([ekvitem])
     elif re.search(r'support|soporte', source_data):
         with open('support-upload.csv', 'a') as supportw:
