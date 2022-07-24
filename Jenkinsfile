@@ -24,7 +24,8 @@ chmod 754 /var/lib/jenkins/workspace/test-erc-stage_main/CSV_formatter.py'''
         script {
           if (fileExists('games-upload.csv')) {
             sh 'echo "uploading games rules"'
-            sh 'akamai edgeworkers --edgerc ${EDGERC} --account-key 1-6JHGX status 50596'
+            sh 'akamai install edgeworkers
+            akamai edgeworkers --edgerc ${EDGERC} --account-key 1-6JHGX status 50596'
           }
         }
 
