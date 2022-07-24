@@ -26,8 +26,8 @@ chmod 754 /var/lib/jenkins/workspace/test-erc-stage_main/CSV_formatter.py'''
             sh 'echo "uploading games rules"'
             sh '''edgekv-importer --edgerc $EDGERC --namespace games --group redirects --account-key 1-6JHGX --csv games-upload.csv --key hash'''
           }
-
         }
+
       }
     }
 
