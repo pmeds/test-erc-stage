@@ -1,7 +1,7 @@
 pipeline {
   agent any
   environment {
-    EDGERC = credentials('edgerctkn')
+    EDGERC = credentials('pauledgerc')
   }
   stages {
     stage('get excel and python file') {
