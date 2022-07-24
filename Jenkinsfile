@@ -22,8 +22,8 @@ chmod 754 /var/lib/jenkins/workspace/test-erc-stage_main/CSV_formatter.py'''
           if (fileExists('games-upload.csv')) {
             sh 'echo "uploading games rules"'
           }
-
         }
+
       }
     }
 
