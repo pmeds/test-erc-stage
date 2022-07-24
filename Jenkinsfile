@@ -16,9 +16,10 @@ chmod 754 /var/lib/jenkins/workspace/test-erc-stage_main/CSV_formatter.py'''
       }
     }
 
-    stage('clean up') {
+    stage('ekv upload') {
       steps {
-        cleanWs(cleanWhenSuccess: true)
+        fileExists 'games-upload.csv'
+        sh 'echo "running previous file"'
       }
     }
 
