@@ -18,8 +18,12 @@ chmod 754 /var/lib/jenkins/workspace/test-erc-stage_main/CSV_formatter.py'''
 
     stage('ekv upload') {
       steps {
-        fileExists 'games-upload.csv'
-        sh 'echo "running previous file"'
+        script {
+          if (fileExists('games-upload.csv')) {
+            sh 'echo "uploading games rules"'
+          }
+
+        }
       }
     }
 
