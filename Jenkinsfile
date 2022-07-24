@@ -16,5 +16,11 @@ chmod 754 /var/lib/jenkins/workspace/test-erc-stage_main/CSV_formatter.py'''
       }
     }
 
+    stage('clean up') {
+      steps {
+        cleanWs(cleanWhenSuccess: true)
+      }
+    }
+
   }
 }
