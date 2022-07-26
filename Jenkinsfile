@@ -1,5 +1,8 @@
 pipeline {
   agent any
+  tools {
+    nodejs 'njs'
+  }
   environment {
     EDGERC = credentials('pauledgerc')
   }
