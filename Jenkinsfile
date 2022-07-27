@@ -32,13 +32,12 @@ chmod 754 /var/lib/jenkins/workspace/test-erc-stage_main/CSV_formatter.py'''
         }
 
         script {
-          steps {
-            git branch: 'main',
-            credentialsId: 'git-log',
-            url: 'ssh://git@github.com:pmeds/upload-tracking.git'
 
-            sh "ls -lat"
-          }
+          git branch: 'main',
+          credentialsId: 'git-log',
+          url: 'ssh://git@github.com:pmeds/upload-tracking.git'
+
+          sh "ls -lat"
         }
 
       }
