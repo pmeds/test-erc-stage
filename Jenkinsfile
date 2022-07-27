@@ -40,7 +40,6 @@ git add .
 git commit -m "upload `date +%Y-%m-%d-%H-%M`"
 git branch -M main
 git remote -v
-git remote set-url --push origin git@github.com:pmeds/upload-tracking.git
 git push origin main'''
           }
         }
