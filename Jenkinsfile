@@ -35,6 +35,7 @@ chmod 754 /var/lib/jenkins/workspace/test-erc-stage_main/CSV_formatter.py'''
         script {
           sshagent (credentials: ['git-log']) {
             sh '''cd /resources/jenkins-ekvdata && git init
+pwd
 git add .
 git commit -m "upload `date +%Y-%m-%d`"
 git branch -M main
