@@ -32,12 +32,10 @@ chmod 754 /var/lib/jenkins/workspace/test-erc-stage_main/CSV_formatter.py'''
         }
 
         script {
-
-          git branch: 'main',
-          credentialsId: 'git-log',
-          url: 'ssh://git@github.com:pmeds/upload-tracking.git'
-
-          sh "ls -lat"
+          withCredentials([usernamePassword(credentialsId: 'git-cred', passwordVariable: 'passwd', usernameVariable: 'user')]) {
+            sh("git tag -a some_tag -m 'Jenkins'")
+            sh('git push https://pmeds:${passwd}@upload-tracking.git--tags')
+          }
         }
 
       }
