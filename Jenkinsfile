@@ -52,6 +52,12 @@ chmod 754 /var/lib/jenkins/workspace/test-erc-stage_main/CSV_formatter.py'''
       }
     }
 
+    stage('clean up on success') {
+      steps {
+        cleanWs(cleanWhenSuccess: true)
+      }
+    }
+
   }
   tools {
     nodejs 'njs'
