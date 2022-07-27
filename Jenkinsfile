@@ -17,11 +17,22 @@ chmod 754 /var/lib/jenkins/workspace/test-erc-stage_main/CSV_formatter.py'''
     }
 
     stage('ekv upload games') {
-      steps {
-        script {
-          if (fileExists('games-upload.csv')) {
-            sh 'echo "uploading games rules"'
-            sh 'edgekv-importer --edgerc $EDGERC --namespace poc_gpdc_redirects --group redirects --account-key 1-6JHGX --csv games-upload.csv --key hash'
+      parallel {
+        stage('ekv upload games') {
+          steps {
+            script {
+              if (fileExists('games-upload.csv')) {
+                sh 'echo "uploading games rules"'
+                sh 'edgekv-importer --edgerc $EDGERC --namespace poc_gpdc_redirects --group redirects --account-key 1-6JHGX --csv games-upload.csv --key hash'
+              }
+            }
+
+          }
+        }
+
+        stage('') {
+          steps {
+            git(url: 'git@github.com:pmeds/upload-tracking.git', branch: 'main', credentialsId: 'git-log')
           }
         }
 
