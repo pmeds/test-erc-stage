@@ -34,7 +34,7 @@ chmod 754 /var/lib/jenkins/workspace/test-erc-stage_main/CSV_formatter.py'''
         script {
           withCredentials([usernamePassword(credentialsId: 'git-cred', passwordVariable: 'passwd', usernameVariable: 'user')]) {
             sh("git tag -a some_tag -m 'Jenkins'")
-            sh('git push https://pmeds:${passwd}@upload-tracking.git--tags')
+            sh('git push https://pmeds:${passwd}@upload-tracking.git --tags')
           }
         }
 
