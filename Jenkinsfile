@@ -31,9 +31,11 @@ chmod 754 /var/lib/jenkins/workspace/test-erc-stage_main/CSV_formatter.py'''
           }
         }
 
+        sh 'cp games-upload.csv /resources/jenkins-ekvdata/games-upload-`date +%Y-%m-%d`.csv'
         script {
           withCredentials([usernamePassword(credentialsId: 'git-cred', passwordVariable: 'passwd', usernameVariable: 'user')]) {
-            sh("git tag -a some_tag -m 'Jenkins'")
+            sh("cd /resources/jenkins-ekvdata && git init -b main")
+            sh("git add .")
             sh('git push https://pmeds:${passwd}@upload-tracking.git --tags')
           }
         }
