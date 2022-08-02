@@ -3,7 +3,9 @@ pipeline {
   stages {
     stage('get excel and python file') {
       steps {
-        sh '''npm version
+        sh '''pwd
+ls -la
+npm version
 wget https://raw.githubusercontent.com/akamai/edgeworkers-examples/master/edgekv/utils/edgekv-importer/index.js 
 wget https://raw.githubusercontent.com/akamai/edgeworkers-examples/master/edgekv/utils/edgekv-importer/package-lock.json 
 wget https://raw.githubusercontent.com/akamai/edgeworkers-examples/master/edgekv/utils/edgekv-importer/package.json 
