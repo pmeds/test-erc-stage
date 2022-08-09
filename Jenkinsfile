@@ -7,7 +7,7 @@ pipeline {
 wget https://raw.githubusercontent.com/akamai/edgeworkers-examples/master/edgekv/utils/edgekv-importer/index.js 
 wget https://raw.githubusercontent.com/akamai/edgeworkers-examples/master/edgekv/utils/edgekv-importer/package-lock.json 
 wget https://raw.githubusercontent.com/akamai/edgeworkers-examples/master/edgekv/utils/edgekv-importer/package.json 
-npm install -g
+npm install
 
 
 chmod 754 /var/lib/jenkins/workspace/test-erc-stage_main/CSV_formatter.py'''
