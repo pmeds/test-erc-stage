@@ -9,6 +9,9 @@ print(filename)
 header = ['hash', 'source', 'destination']
 # False check to only write the header row once
 header_added = False
+headergm_added = False
+headers_added = False
+
 # Read spreadsheet, openpyxl is required for old versions of python
 df = pd.read_excel(filename, engine='openpyxl')
 # Iterate through the rows of the spreadsheet and extract the enxt data:
@@ -26,18 +29,19 @@ for index, row in df.iterrows():
     if re.search(r'games|editorial|ps4-games|ps-vr-games|ps-plus', source_data):
         with open('games-upload.csv', 'a') as gamesw:
             writerg = csv.writer(gamesw, lineterminator='\n')
-            if not header_added:
+            if not headergm_added:
                 writerg.writerow(header)
+                headergm_added = True
                 print(header)
-                header_added = True
+            print("now writing to games")
             print(ekvitem)
             writerg.writerows([ekvitem])
     elif re.search(r'support|soporte', source_data):
         with open('support-upload.csv', 'a') as supportw:
             writers = csv.writer(supportw, lineterminator='\n')
-            if not header_added:
+            if not headers_added:
                 writers.writerow(header)
-                header_added = True
+                headers_added = True
             writers.writerows([ekvitem])
     else:
         with open('general-upload.csv', 'a') as generalw:
@@ -45,8 +49,7 @@ for index, row in df.iterrows():
             if not header_added:
                 writer.writerow(header)
                 header_added = True
+                print(header)
+            print('now writing to general')
+            print(ekvitem)
             writer.writerows([ekvitem])
-
-
-
-
